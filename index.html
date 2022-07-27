@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Webpage</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+		
+</body>
+	
+<script type="text/javascript">
+	
+	document.addEventListener('mousemove',function(e)
+	{
+		let body=document.querySelector('body');
+		let particles=document.createElement('span');
+		let x=e.offsetX;
+		let y=e.offsetY;
+		particles.style.left=x+'px';
+		particles.style.top=y+'px';
+
+		let randomtransform=Math.random()*360;
+		particles.style.transform='rotate('+randomtransform+'deg)';
+
+		body.appendChild(particles);
+
+		setTimeout(function()
+		{
+			particles.remove()
+		},1000);
+	})
+
+</script>
+
+</html>
