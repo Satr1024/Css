@@ -195,18 +195,49 @@ span:nth-child(3)::before
 
 			clone.style.transform='rotate('+randomloc+'deg)';
 
-			document.querySelector("audio").play();
+			
+			setTimeout(function()
+			{
+				clone.remove();
+				
+			},400);
+
+			body.appendChild(clone);
+
+		});
+		
+		document.addEventListener("mouse",function(e)
+		{
+
+			let body=document.querySelector("body");
+			let ele=document.querySelector("div");
+
+			let clone=ele.cloneNode(true);
+
+			let x=e.clientX;
+			let y=e.clientY;
+
+			let randomloc=Math.random()*180;
+
+			clone.style.display='flex';
+			clone.style.top=y+'px';
+			clone.style.left=x+'px';
+
+			clone.style.transform='rotate('+randomloc+'deg)';
+
+			
 
 			setTimeout(function()
 			{
 				clone.remove();
-				document.querySelector("audio").pause();
+				
 
 			},400);
 
 			body.appendChild(clone);
 
 		});
+		
 	</script>
 
 </html>	
